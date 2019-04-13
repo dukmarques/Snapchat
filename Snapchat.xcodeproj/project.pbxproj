@@ -56,7 +56,6 @@
 				6088E526DED312ECA18CA7C1 /* Pods-Snapchat.debug.xcconfig */,
 				6533897C89025A5CB358B759 /* Pods-Snapchat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
