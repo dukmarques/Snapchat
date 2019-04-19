@@ -46,10 +46,7 @@ class EntrarViewController: UIViewController {
     
     //Displayed alert to user
     func viewMessage(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
+        let alert = Alert(title: title, message: message)
+        present(alert.getAlert(), animated: true, completion: nil)
     }
 }

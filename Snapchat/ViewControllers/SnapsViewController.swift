@@ -19,7 +19,8 @@ class SnapsViewController: UIViewController {
             try Auth.auth().signOut()
             dismiss(animated: true, completion: nil)
         } catch  {
-            print("Erro ao deslogar usuário.")
+            let alert = Alert(title: "Erro ao deslogar", message: "Ocorreu um erro, por favor, tente novamente.")
+            present(alert.getAlert(), animated: true, completion: nil)
         }
     }
 }

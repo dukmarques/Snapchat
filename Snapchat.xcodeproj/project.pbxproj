@@ -72,6 +72,7 @@
 		A0C5CD1D226A201700027394 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A0CBCB4F22619CBE00DDC9F0 /* ViewController.swift */,
 				A0BCC9CF2268D2CA00266D7D /* EntrarViewController.swift */,
 				A0BCC9D12268D38800266D7D /* CadastroViewController.swift */,
 				A04718C022698A9F0010C79E /* SnapsViewController.swift */,
@@ -112,7 +113,6 @@
 				A0C5CD1E226A203900027394 /* Models */,
 				A0C5CD1D226A201700027394 /* ViewControllers */,
 				A0CBCB4D22619CBE00DDC9F0 /* AppDelegate.swift */,
-				A0CBCB4F22619CBE00DDC9F0 /* ViewController.swift */,
 				A0CBCB5122619CBE00DDC9F0 /* Main.storyboard */,
 				A0CBCB5422619CC400DDC9F0 /* Assets.xcassets */,
 				A0CBCB5622619CC400DDC9F0 /* LaunchScreen.storyboard */,
