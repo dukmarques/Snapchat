@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //Check if a user already exists
+        let auth = Auth.auth()
+        auth.addStateDidChangeListener { (auth, user) in
+            if let userLogged = user {
+                self.performSegue(withIdentifier: "autoLoginSegue", sender: nil)
+            }
+        }
     }
     
     //Method called whenever the user view the screen

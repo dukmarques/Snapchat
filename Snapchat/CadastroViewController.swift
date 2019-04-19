@@ -36,7 +36,12 @@ class CadastroViewController: UIViewController {
                         let auth = Auth.auth()
                         auth.createUser(withEmail: emailR, password: passwordR) { (user, error) in
                             if error == nil{
-                                print("Sucesso ao cadastrar")
+                                if user == nil {
+                                    self.viewMessage(title: "Erro ao autenticar", message: "Problema ao realizar autenticação, tente novamente.")
+                                } else {
+                                    //Redirects user to main screen
+                                    self.performSegue(withIdentifier: "registerLoginSegue", sender: nil)
+                                }
                             } else {
                                 let err = error! as NSError
                                 if let codError = err.userInfo["error_name"] {//Recover the typed error
