@@ -275,7 +275,7 @@
         <!--Snaps-->
         <scene sceneID="8vJ-uJ-Ysk">
             <objects>
-                <viewController id="UhY-iX-Dy8" sceneMemberID="viewController">
+                <viewController id="UhY-iX-Dy8" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oc2-2r-6Je">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,7 +283,11 @@
                         <viewLayoutGuide key="safeArea" id="tRQ-O3-bqn"/>
                     </view>
                     <navigationItem key="navigationItem" title="Snaps" id="5Mp-7U-16e">
-                        <barButtonItem key="leftBarButtonItem" title="Sair" id="b27-XJ-ssp"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sair" id="b27-XJ-ssp">
+                            <connections>
+                                <action selector="logOut:" destination="UhY-iX-Dy8" id="Ctg-4o-CaT"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wu5-eM-Lup">
                             <connections>
                                 <segue destination="arQ-Qa-nrZ" kind="show" id="NPA-yQ-bue"/>
@@ -295,10 +299,10 @@
             </objects>
             <point key="canvasLocation" x="3170" y="83"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo View Controller-->
         <scene sceneID="6Yg-Uw-X1b">
             <objects>
-                <viewController id="arQ-Qa-nrZ" sceneMemberID="viewController">
+                <viewController id="arQ-Qa-nrZ" customClass="PhotoViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bhH-nD-GRU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
