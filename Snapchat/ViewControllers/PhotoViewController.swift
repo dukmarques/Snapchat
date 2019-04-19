@@ -57,6 +57,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                         self.nextButton.setTitle("Próximo", for: .normal)
                     } else {
                         print("Erro ao fazer o upload do arquivo")
+                        let alert = Alert(title: "Falha de Upload", message: "Erro ao salvar o arquivo, tente novamente.")
+                        self.present(alert.getAlert(), animated: true, completion: nil)
                     }
                 }
             }
