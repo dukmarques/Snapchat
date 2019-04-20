@@ -51,8 +51,28 @@ class UsersTableViewController: UITableViewController {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         //Config cell
-        cell.textLabel?.text = self.users[indexPath.row].name
+        cell.textLabel?.text = self.users[indexPath.row].name //Title
+        cell.detailTextLabel?.text = self.users[indexPath.row].email //Subtitle
         
         return cell
+    }
+    
+    //Retrieves the index of the row that was selected
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedUser = self.users[indexPath.row]
+        
+        //References Database Firebase
+        let database = Database.database().reference()
+        let usersRef = database.child("usuarios")
+        
+        let snaps = usersRef.child(selectedUser.uid).child("snaps")
+        let snap = [
+            "de": "eduardo@hotmail.com",
+            "nome": "Dudu",
+            "descricao": "Hello!",
+            "urlImagem": "www.fireabse...",
+            "idImagem": "098231fdfu3f1d"
+        ]
+        snaps.childByAutoId().setValue(snap) //.childByAutoId: Create a node with incremental and unique id
     }
 }
