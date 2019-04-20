@@ -18,6 +18,8 @@
 		A0CBCB5522619CC400DDC9F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0CBCB5422619CC400DDC9F0 /* Assets.xcassets */; };
 		A0CBCB5822619CC400DDC9F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0CBCB5622619CC400DDC9F0 /* LaunchScreen.storyboard */; };
 		A0CBCB6022619E0400DDC9F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0CBCB5F22619E0400DDC9F0 /* GoogleService-Info.plist */; };
+		A0E5CD15226B90F0004FADCC /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E5CD14226B90F0004FADCC /* UsersTableViewController.swift */; };
+		A0E5CD17226B94C1004FADCC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E5CD16226B94C1004FADCC /* User.swift */; };
 		EFDE59CC12ADE78815325A23 /* Pods_Snapchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC182959B12AFA2E1024162 /* Pods_Snapchat.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		A0CBCB5722619CC400DDC9F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0CBCB5922619CC400DDC9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0CBCB5F22619E0400DDC9F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0E5CD14226B90F0004FADCC /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		A0E5CD16226B94C1004FADCC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 				A0BCC9D12268D38800266D7D /* CadastroViewController.swift */,
 				A04718C022698A9F0010C79E /* SnapsViewController.swift */,
 				A04718C222698AD80010C79E /* PhotoViewController.swift */,
+				A0E5CD14226B90F0004FADCC /* UsersTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				A0C5CD1F226A209400027394 /* Alert.swift */,
+				A0E5CD16226B94C1004FADCC /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,8 +257,10 @@
 			files = (
 				A04718C122698A9F0010C79E /* SnapsViewController.swift in Sources */,
 				A0CBCB5022619CBE00DDC9F0 /* ViewController.swift in Sources */,
+				A0E5CD15226B90F0004FADCC /* UsersTableViewController.swift in Sources */,
 				A0CBCB4E22619CBE00DDC9F0 /* AppDelegate.swift in Sources */,
 				A0BCC9D02268D2CA00266D7D /* EntrarViewController.swift in Sources */,
+				A0E5CD17226B94C1004FADCC /* User.swift in Sources */,
 				A0BCC9D22268D38800266D7D /* CadastroViewController.swift in Sources */,
 				A04718C322698AD80010C79E /* PhotoViewController.swift in Sources */,
 				A0C5CD20226A209400027394 /* Alert.swift in Sources */,

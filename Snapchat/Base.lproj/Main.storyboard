@@ -317,7 +317,7 @@
             </objects>
             <point key="canvasLocation" x="3170" y="83"/>
         </scene>
-        <!--Photo View Controller-->
+        <!--Foto-->
         <scene sceneID="6Yg-Uw-X1b">
             <objects>
                 <viewController id="arQ-Qa-nrZ" customClass="PhotoViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
@@ -365,7 +365,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="adb-r6-0CK"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fhu-4a-etN">
+                    <navigationItem key="navigationItem" title="Foto" id="fhu-4a-etN">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="93g-Uh-BOb">
                             <connections>
                                 <action selector="selectPhoto:" destination="arQ-Qa-nrZ" id="IyG-iZ-37w"/>
@@ -376,11 +376,40 @@
                         <outlet property="desc" destination="tPR-5G-0pr" id="kvd-Th-ZIb"/>
                         <outlet property="image" destination="Y6f-SA-VDo" id="uHv-hm-kY1"/>
                         <outlet property="nextButton" destination="vDh-w4-r7t" id="zYY-pw-tQC"/>
+                        <segue destination="3hB-gO-0cR" kind="show" identifier="selectUserSegue" id="bqq-3d-iCO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlY-rp-F5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3972" y="81.409295352323838"/>
+        </scene>
+        <!--Users Table View Controller-->
+        <scene sceneID="u84-P1-qk0">
+            <objects>
+                <tableViewController id="3hB-gO-0cR" customClass="UsersTableViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2uz-qw-Hgv" customClass="Users">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="g5c-zs-d5y">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g5c-zs-d5y" id="Hxy-qJ-XDp">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3hB-gO-0cR" id="5h4-hg-NH7"/>
+                            <outlet property="delegate" destination="3hB-gO-0cR" id="vaU-tw-uCH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sI6-H4-PNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4758" y="81"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AWf-iW-biL">

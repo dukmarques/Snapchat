@@ -50,7 +50,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                         
                         //Download URL
                         images.downloadURL(completion: { (url, error) in
-                            print(url?.absoluteString)
+                            let url = url?.absoluteString
+                            self.performSegue(withIdentifier: "selectUserSegue", sender: url)
                         })
                         
                         self.nextButton.isEnabled = true //Turn on button
