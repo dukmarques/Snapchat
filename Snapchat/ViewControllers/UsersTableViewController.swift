@@ -8,9 +8,13 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class UsersTableViewController: UITableViewController {
     var users: [User] = []
+    var imageUrl = ""
+    var desc = ""
+    var imageId = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,15 +68,24 @@ class UsersTableViewController: UITableViewController {
         //References Database Firebase
         let database = Database.database().reference()
         let usersRef = database.child("usuarios")
-        
         let snaps = usersRef.child(selectedUser.uid).child("snaps")
-        let snap = [
-            "de": "eduardo@hotmail.com",
-            "nome": "Dudu",
-            "descricao": "Hello!",
-            "urlImagem": "www.fireabse...",
-            "idImagem": "098231fdfu3f1d"
-        ]
-        snaps.childByAutoId().setValue(snap) //.childByAutoId: Create a node with incremental and unique id
+        
+        //Recover data from the logged in user
+        let auth = Auth.auth()
+        if let userIdLogged = auth.currentUser?.uid {
+            let userLogged = usersRef.child(userIdLogged)
+            userLogged.observeSingleEvent(of: DataEventType.value) { (snapshot) in
+                let data = snapshot.value as? NSDictionary
+                
+                let snap = [
+                    "de": data?["email"] as? String,
+                    "nome": data?["name"] as? String,
+                    "descricao": self.desc,
+                    "urlImagem": self.imageUrl,
+                    "idImagem": self.imageId
+                ]
+                snaps.childByAutoId().setValue(snap) //.childByAutoId: Create a node with incremental and unique id
+            }
+        }
     }
 }

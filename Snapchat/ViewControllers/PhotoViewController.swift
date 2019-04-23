@@ -40,18 +40,25 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         let storage = Storage.storage().reference()
         let images = storage.child("imagens")
+        let imageFile = images.child("\(self.imageId).jpg")
         
         //Recover image
         if let selectedImage = image.image {
             if let imageData = selectedImage.jpegData(compressionQuality: 0.9) {
-                images.child("\(self.imageId).jpg").putData(imageData, metadata: nil) { (metaData, error) in
+                imageFile.putData(imageData, metadata: nil) { (metaData, error) in
                     if error == nil {
                         print("Sucesso ao fazer upload do arquivo")
                         
                         //Download URL
-                        images.downloadURL(completion: { (url, error) in
-                            let url = url?.absoluteString
-                            self.performSegue(withIdentifier: "selectUserSegue", sender: url)
+                        imageFile.downloadURL(completion: { (urlAddres, error) in
+                            if error == nil {
+                                let url = urlAddres?.absoluteString
+                                self.performSegue(withIdentifier: "selectUserSegue", sender: url)
+                            } else {
+                                print("Error: ")
+                                print(error?.localizedDescription)
+                                print(error)
+                            }
                         })
                         
                         self.nextButton.isEnabled = true //Turn on button
@@ -62,6 +69,16 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                     }
                 }
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectUserSegue" {
+            let usersViewController = segue.destination as! UsersTableViewController
+            
+            usersViewController.imageUrl = sender as! String
+            usersViewController.desc = self.desc.text!
+            usersViewController.imageId = self.imageId
         }
     }
     
