@@ -18,6 +18,7 @@ class DetailSnapsViewController: UIViewController {
     @IBOutlet weak var count: UILabel!
     
     var snap = Snap(identificador: "", nome: "", de: "", desc: "", urlImage: "", idImagem: "")
+    var timerSnap = 11
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,20 @@ class DetailSnapsViewController: UIViewController {
         let url = URL(string: snap.urlImagem)
         image.sd_setImage(with: url) { (image, error, cache, url) in
             if error == nil {
-                
+                //Initializes the timer
+                Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+                    //Decrement timer
+                    self.timerSnap = self.timerSnap - 1
+                    
+                    //Show timer on screen
+                    self.count.text = String(self.timerSnap)
+                    
+                    //Stop timer, invalidate
+                    if self.timerSnap == 0 {
+                        timer.invalidate()
+                        self.dismiss(animated: true, completion: nil) //Closed view
+                    }
+                })
             }
         }
     }
