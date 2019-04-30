@@ -26,14 +26,20 @@ class UsersTableViewController: UITableViewController {
         usersRef.observe(DataEventType.childAdded) { (snapshot) in
             let data = snapshot.value as? NSDictionary
             
+            //Recover data logged user
+            let auth = Auth.auth()
+            let userLoggedId = auth.currentUser?.uid
+            
             //Recover data
             let userEmail = data?["email"] as! String
             let userName = data?["name"] as! String
             let userId = snapshot.key
             
-            //Add array
-            let user = User(email: userEmail, name: userName, uid: userId)
-            self.users.append(user)
+            //Add array, verifies that the user id is different from the logged-in user id
+            if userLoggedId != userId {
+                let user = User(email: userEmail, name: userName, uid: userId)
+                self.users.append(user)
+            }
             
             self.tableView.reloadData() //Reload list
         }
@@ -85,6 +91,8 @@ class UsersTableViewController: UITableViewController {
                     "idImagem": self.imageId
                 ]
                 snaps.childByAutoId().setValue(snap) //.childByAutoId: Create a node with incremental and unique id
+                
+                self.navigationController?.popToRootViewController(animated: true) //Return to root view
             }
         }
     }

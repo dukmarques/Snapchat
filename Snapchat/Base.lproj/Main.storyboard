@@ -383,7 +383,7 @@
             </objects>
             <point key="canvasLocation" x="3972" y="81.409295352323838"/>
         </scene>
-        <!--Users Table View Controller-->
+        <!--Usuários-->
         <scene sceneID="u84-P1-qk0">
             <objects>
                 <tableViewController id="3hB-gO-0cR" customClass="UsersTableViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
@@ -422,6 +422,7 @@
                             <outlet property="delegate" destination="3hB-gO-0cR" id="vaU-tw-uCH"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Usuários" id="tyn-Bo-Z25"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sI6-H4-PNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

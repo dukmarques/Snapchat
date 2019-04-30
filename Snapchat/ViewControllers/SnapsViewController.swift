@@ -14,6 +14,7 @@ class SnapsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     @IBAction func logOut(_ sender: Any) {
         do {
             try Auth.auth().signOut()
