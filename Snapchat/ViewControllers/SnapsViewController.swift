@@ -22,7 +22,7 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let users = Database.database().reference().child("usuarios")
             let snaps = users.child(userLoggedId).child("snaps")
             
-            //Listener for snaps
+            //Listener for snaps added
             snaps.observe(DataEventType.childAdded) { (snapshot) in
                 let datas = snapshot.value as? NSDictionary
                 
@@ -36,6 +36,19 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 )
                 
                 self.snaps.append(snap)
+                self.tableView.reloadData() //Reloads the table data
+            }
+            
+            //Listener for snaps removed
+            snaps.observe(DataEventType.childRemoved) { (snapshot) in
+                //Remove snap
+                var indice = 0
+                for snap in self.snaps{
+                    if snap.identificador == snapshot.key {
+                        self.snaps.remove(at: indice)
+                    }
+                    indice = indice + 1
+                }
                 self.tableView.reloadData() //Reloads the table data
             }
         }

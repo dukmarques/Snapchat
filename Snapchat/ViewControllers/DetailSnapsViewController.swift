@@ -23,10 +23,14 @@ class DetailSnapsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        details.text = snap.descricao
+        details.text = "Carrregando..."
+        
         let url = URL(string: snap.urlImagem)
         image.sd_setImage(with: url) { (image, error, cache, url) in
             if error == nil {
+                //Set description
+                self.details.text = self.snap.descricao
+                
                 //Initializes the timer
                 Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
                     //Decrement timer
