@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailSnapsViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
@@ -18,6 +19,12 @@ class DetailSnapsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(snap.descricao)
+        details.text = snap.descricao
+        let url = URL(string: snap.urlImagem)
+        image.sd_setImage(with: url) { (image, error, cache, url) in
+            if error == nil {
+                print("imagem exibida")
+            }
+        }
     }
 }

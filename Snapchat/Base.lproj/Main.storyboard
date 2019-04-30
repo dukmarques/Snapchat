@@ -340,7 +340,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ChD-eU-suf" id="Zpd-Uf-IAR"/>
-                        <segue destination="kT4-SG-SDV" kind="presentation" identifier="detailSnapSegue" id="6gJ-MH-pz9"/>
+                        <segue destination="kT4-SG-SDV" kind="show" identifier="detailSnapSegue" id="6gJ-MH-pz9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oID-8s-C2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -356,7 +356,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qXD-Xi-7f0">
-                                <rect key="frame" x="16" y="20" width="343" height="281"/>
+                                <rect key="frame" x="16" y="64" width="343" height="281"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="281" id="pJ6-f7-ufj"/>
                                 </constraints>
@@ -368,7 +368,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63d-rI-fHh">
-                                <rect key="frame" x="16" y="309" width="343" height="21.5"/>
+                                <rect key="frame" x="16" y="353" width="343" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
