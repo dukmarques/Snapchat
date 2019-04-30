@@ -293,11 +293,37 @@
         <!--Snaps-->
         <scene sceneID="8vJ-uJ-Ysk">
             <objects>
-                <viewController id="UhY-iX-Dy8" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="UhY-iX-Dy8" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oc2-2r-6Je">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ChD-eU-suf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="celSnaps" id="pEz-Oi-bIt">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pEz-Oi-bIt" id="lIp-aN-1ys">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="UhY-iX-Dy8" id="IrR-Fp-opa"/>
+                                    <outlet property="delegate" destination="UhY-iX-Dy8" id="QwP-1C-E9x"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ChD-eU-suf" firstAttribute="bottom" secondItem="tRQ-O3-bqn" secondAttribute="bottom" id="9J6-YF-u7K"/>
+                            <constraint firstItem="ChD-eU-suf" firstAttribute="top" secondItem="tRQ-O3-bqn" secondAttribute="top" id="G7n-Ya-FBM"/>
+                            <constraint firstItem="ChD-eU-suf" firstAttribute="leading" secondItem="tRQ-O3-bqn" secondAttribute="leading" id="PCj-80-3La"/>
+                            <constraint firstItem="ChD-eU-suf" firstAttribute="trailing" secondItem="tRQ-O3-bqn" secondAttribute="trailing" id="RCY-8e-gFi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tRQ-O3-bqn"/>
                     </view>
                     <navigationItem key="navigationItem" title="Snaps" id="5Mp-7U-16e">
@@ -312,10 +338,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ChD-eU-suf" id="Zpd-Uf-IAR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oID-8s-C2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3170" y="83"/>
+            <point key="canvasLocation" x="3226" y="81"/>
         </scene>
         <!--Foto-->
         <scene sceneID="6Yg-Uw-X1b">

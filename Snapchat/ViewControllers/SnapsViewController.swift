@@ -10,11 +10,13 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class SnapsViewController: UIViewController {
+class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
     var snaps: [Snap] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let auth = Auth.auth()
         if let userLoggedId = auth.currentUser?.uid {
             let users = Database.database().reference().child("usuarios")
@@ -34,7 +36,7 @@ class SnapsViewController: UIViewController {
                 )
                 
                 self.snaps.append(snap)
-                print(self.snaps)
+                self.tableView.reloadData() //Reloads the table data
             }
         }
     }
@@ -47,5 +49,27 @@ class SnapsViewController: UIViewController {
             let alert = Alert(title: "Erro ao deslogar", message: "Ocorreu um erro, por favor, tente novamente.")
             present(alert.getAlert(), animated: true, completion: nil)
         }
+    }
+    
+    // MARK: - Table view data source
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if snaps.count == 0 {
+            return 1
+        }
+        
+        return snaps.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cel = tableView.dequeueReusableCell(withIdentifier: "celSnaps", for: indexPath)
+        
+        if snaps.count == 0 {
+            cel.textLabel?.text = "Nenhum snap para você :)"
+        } else {
+            cel.textLabel?.text = self.snaps[indexPath.row].nome
+        }
+        
+        return cel
     }
 }
